@@ -9,31 +9,61 @@
     </div>
 @endif
 
-@if (Auth::user())
+ 
 <div class="mb-4 bg-white"> 
-    <a href="/blog/create" class="btn btn-md btn-primary">Create Post</a>
+    <a href="{{ route('blog.create') }}" class="btn btn-md btn-primary">Create Post</a>
 </div>
-@endif
+ 
 
 
-@foreach ($posts as $post)
+ 
     <div class="mb-4 bg-white"> 
-        <h3 class="text-uppercase h4 font-bold p-2">{{ $post->title }}</h3>
+        <h3 class="text-uppercase h4 font-bold p-2">Lorem ipsum dolor sit amet consectetur</h3>
         <div class="" style="max-height:500px;overflow:hidden;">
             <div style="display:flex;justify-content:center;align-items: center;overflow:hidden;">
-                <img src="{{ asset('img/'.$post->image_path)}}" class="w-100 h-100" style="flex-shrink:0;min-width:100%;min-height:100%"/>
+                <img src="{{ asset('assets/img/sample.jpg')}}" class="w-100 h-100" style="flex-shrink:0;min-width:100%;min-height:100%"/>
             </div>
         </div>
           <div class="time mb-3">
-    by <span>{{ $post->user->firstname . ' '. $post->user->lastname }} </span> on <i>{{ date("d M Y", strtotime($post->created_at)) }} </i>
+    by <span>Isaac Toyin </span> on <i>20 March 2023 </i>
           </div>
           <p class="desc mb-3">
-            {{ limit_words($post->description, 70)  }}...
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nihil optio nesciunt in, libero reprehenderit iure vero? Eligendi facilis aut, molestias mollitia molestiae in maiores quam totam, pariatur ea labore! ...
           </p>
-            <a href="/blog/{{ $post->slug }}" class="text-decoration-none btn btn-md btn-success">Contine Reading</a>
-    </div>  
-    
-@endforeach
+            <a href="{{ route('blog.show', 'show') }}" class="text-decoration-none btn btn-md btn-success">Continue Reading</a>
+    </div>
+ 
+    <div class="mb-4 bg-white"> 
+        <h3 class="text-uppercase h4 font-bold p-2">Lorem ipsum dolor sit amet consectetur</h3>
+        <div class="" style="max-height:500px;overflow:hidden;">
+            <div style="display:flex;justify-content:center;align-items: center;overflow:hidden;">
+                <img src="{{ asset('assets/img/sample.jpg')}}" class="w-100 h-100" style="flex-shrink:0;min-width:100%;min-height:100%"/>
+            </div>
+        </div>
+          <div class="time mb-3">
+    by <span>Isaac Toyin </span> on <i>20 March 2023 </i>
+          </div>
+          <p class="desc mb-3">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nihil optio nesciunt in, libero reprehenderit iure vero? Eligendi facilis aut, molestias mollitia molestiae in maiores quam totam, pariatur ea labore! ...
+          </p>
+            <a href="{{ route('blog.show', 'show') }}" class="text-decoration-none btn btn-md btn-success">Continue Reading</a>
+    </div>
+ 
+    <div class="mb-4 bg-white"> 
+        <h3 class="text-uppercase h4 font-bold p-2">Lorem ipsum dolor sit amet consectetur</h3>
+        <div class="" style="max-height:500px;overflow:hidden;">
+            <div style="display:flex;justify-content:center;align-items: center;overflow:hidden;">
+                <img src="{{ asset('assets/img/sample.jpg')}}" class="w-100 h-100" style="flex-shrink:0;min-width:100%;min-height:100%"/>
+            </div>
+        </div>
+          <div class="time mb-3">
+    by <span>Isaac Toyin </span> on <i>20 March 2023 </i>
+          </div>
+          <p class="desc mb-3">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nihil optio nesciunt in, libero reprehenderit iure vero? Eligendi facilis aut, molestias mollitia molestiae in maiores quam totam, pariatur ea labore! ...
+          </p>
+            <a href="{{ route('blog.show', 'show') }}" class="text-decoration-none btn btn-md btn-success">Continue Reading</a>
+    </div>
 
 
 

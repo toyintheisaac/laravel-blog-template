@@ -15,19 +15,26 @@
                     @endif
 
    
-<form method="POST" action="{{ url("profile/".Auth::user()->id) }}"  >
-    @csrf 
+<form method="POST" action="" >
+    @csrf
             <div class="form-group mb-2">
-                <input type="text" class="form-control py-3" name="firstname" value="{{ Auth::user()->firstname }}" />
+                <label for="">First Name</label>
+                <input type="text" class="form-control py-2" name="first_name" value="" />
             </div>
             <div class="form-group mb-2">
-                <input type="text" class="form-control py-3" name="lastname" value="{{  Auth::user()->lastname }}" />
+                <label for="">Last Name</label>
+                <input type="text" class="form-control " name="last_name" value="" />
             </div>
             <div class="form-group mb-2">
-                <input type="text" class="form-control py-3" name="phone" value="{{  Auth::user()->phone }}" />
+                <label for="">Email</label>
+                <input type="email" class="form-control" name="email" value="" />
             </div>
             <div class="form-group mb-2">
-                <input type="submit" class="form-control btn btn-md btn-success" value="UPDATE"  />
+                <label for="">Phone</label>
+                <input type="text" class="form-control" name="phone" value="" />
+            </div>
+            <div class="form-group mb-2">
+                <input type="submit" class="form-control btn btn-md btn-success" value="UPDATE" />
             </div>
 </form>                     
  

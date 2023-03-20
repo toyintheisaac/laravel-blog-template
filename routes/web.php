@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/profile', [HomeController::class, 'profile'])->name('profile'); 
+Route::get('/reset-password', [HomeController::class, 'password_change'])->name('change_password');
+
+
+Route::resource('/blog', PostController::class)->name('blog','blog');

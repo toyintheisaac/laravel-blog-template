@@ -10,13 +10,13 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('assets/js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
 
     @yield('header')
     
@@ -25,7 +25,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ route('home') }}">
                     {{ config('app.name', 'Blog') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -42,7 +42,7 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/blog/">Our Blog</a>
+                                    <a class="nav-link" href="/blog/">My Blog</a>
                                 </li>
                         @guest
                             @if (Route::has('login'))
@@ -59,14 +59,14 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->firstname }}  {{ Auth::user()->lastname }}
+                                    {{ Auth::user()->first_name }}  {{ Auth::user()->last_name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> 
-                                    <a class="dropdown-item" href="{{ url('profile') }}" >
+                                    <a class="dropdown-item" href="{{ route('profile') }}" >
                                        My Profile
                                     </a>
-                                    <a class="dropdown-item" href="{{ url('reset-password') }}" >
+                                    <a class="dropdown-item" href="{{ route('change_password') }}" >
                                       Change Password
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -97,7 +97,7 @@
                 <div class="col-sm-3">  
                             <div class="mb-4 bg-white p-3">
                                 <h4>Search</h4>
-                                <form action="{{ url('blog/') }}" method="get"> 
+                                <form action="" method="get">
                                     <div class="form-group">
                                         <input type="text" name="search" class="form-control" value="{{ old('search') }}" />
                                     </div>
@@ -108,16 +108,23 @@
                             </div>  
                             <div class="mb-4 bg-white p-3">
                                 <h4>Recent Posts</h4>
-                                <ul class="links">
-                                    @foreach ( $recent_posts as $recent_post )
-                                        <a href="{{ url('/blog'.'/'.$recent_post->slug) }}"><li>{{ $recent_post->title }}</li></a>
-                                    @endforeach
+                                <ul class="links"> 
+                                        <a href="{{ route('blog.show','slug') }}"><li>Title Title Title</li></a>
+                                        <a href="{{ route('blog.show','slug') }}"><li>Title Title Title</li></a>
+                                        <a href="{{ route('blog.show','slug') }}"><li>Title Title Title</li></a>
+                                        <a href="{{ route('blog.show','slug') }}"><li>Title Title Title</li></a>
+                                        <a href="{{ route('blog.show','slug') }}"><li>Title Title Title</li></a> 
+                                    
                                 </ul>
                             </div>  
                             <div class="mb-4 bg-white p-3">
                                 <h4>Popular Posts</h4>
-                                <ul>
-                                    <li> ii </li>
+                                <ul class="links">
+                                    <a href="{{ route('blog.show','slug') }}"><li>Title Title Title</li></a>
+                                    <a href="{{ route('blog.show','slug') }}"><li>Title Title Title</li></a>
+                                    <a href="{{ route('blog.show','slug') }}"><li>Title Title Title</li></a>
+                                    <a href="{{ route('blog.show','slug') }}"><li>Title Title Title</li></a>
+                                    <a href="{{ route('blog.show','slug') }}"><li>Title Title Title</li></a> 
                                 </ul>
                             </div>  
                 </div>
@@ -127,5 +134,6 @@
     </div>
         </main>
     </div>
+    @yield('script')
 </body>
 </html>

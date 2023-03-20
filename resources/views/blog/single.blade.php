@@ -8,62 +8,47 @@
         {{ session()->get('message') }}
     </div>
 @endif
-
-@if (Auth::user() && Auth::user()->id == $post->user_id)
+ 
     <div class="mb-4 bg-white"> 
-      <form action="/blog/{{ $post->slug }}" method="post">
+      <form action="{{ route('blog.destroy', 'slug') }}" method="post">
         @csrf
         @method('DELETE')
-        <a href="/blog/{{ $post->slug }}/edit" class="btn btn-md btn-primary">Edit Post</a>
+        <a href="{{ route('blog.edit', 'slug') }}" class="btn btn-md btn-primary">Edit Post</a>
         <button class="btn btn-md btn-danger" type="submit" >Delete Post</button>
       </form>
-    </div>
-@endif
+    </div> 
 
  
     <div class="mb-4 bg-white"> 
-        <h3 class="text-uppercase h4 font-bold p-2">{{ $post->title }}</h3>
+        <h3 class="text-uppercase h4 font-bold p-2">Title Title Title Title </h3>
         <div class="" style="max-height:500px;overflow:hidden;">
             <div style="display:flex;justify-content:center;align-items: center;overflow:hidden;">
-                <img src="{{ asset('img/'.$post->image_path)}}" class="w-100 h-100" style="flex-shrink:0;min-width:100%;min-height:100%"/>
+                <img src="{{ asset('assets/img/sample.jpg')}}" class="w-100 h-100" style="flex-shrink:0;min-width:100%;min-height:100%"/>
             </div>
         </div>
           <div class="time mb-3">
-by <span>{{ $post->user->firstname . ' '. $post->user->lastname }} </span> on <i>{{ date("d M Y", strtotime($post->created_at)) }} </i>
+            by <span> Isaac Toyin </span> on <i>20 March 2023 </i>
           </div>
           <p class="desc mb-3">
-            {{  $post->description }} 
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit cupiditate porro placeat quas magni dolorem rem sint explicabo exercitationem minima tempora omnis eius quae inventore, iste sed voluptatum error laboriosam. 
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit cupiditate porro placeat quas magni dolorem rem sint explicabo exercitationem minima tempora omnis eius quae inventore, iste sed voluptatum error laboriosam. 
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit cupiditate porro placeat quas magni dolorem rem sint explicabo exercitationem minima tempora omnis eius quae inventore, iste sed voluptatum error laboriosam. 
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit cupiditate porro placeat quas magni dolorem rem sint explicabo exercitationem minima tempora omnis eius quae inventore, iste sed voluptatum error laboriosam. 
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit cupiditate porro placeat quas magni dolorem rem sint explicabo exercitationem minima tempora omnis eius quae inventore, iste sed voluptatum error laboriosam. 
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit cupiditate porro placeat quas magni dolorem rem sint explicabo exercitationem minima tempora omnis eius quae inventore, iste sed voluptatum error laboriosam. 
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit cupiditate porro placeat quas magni dolorem rem sint explicabo exercitationem minima tempora omnis eius quae inventore, iste sed voluptatum error laboriosam. 
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit cupiditate porro placeat quas magni dolorem rem sint explicabo exercitationem minima tempora omnis eius quae inventore, iste sed voluptatum error laboriosam. 
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit cupiditate porro placeat quas magni dolorem rem sint explicabo exercitationem minima tempora omnis eius quae inventore, iste sed voluptatum error laboriosam. 
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit cupiditate porro placeat quas magni dolorem rem sint explicabo exercitationem minima tempora omnis eius quae inventore, iste sed voluptatum error laboriosam. 
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit cupiditate porro placeat quas magni dolorem rem sint explicabo exercitationem minima tempora omnis eius quae inventore, iste sed voluptatum error laboriosam. 
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit cupiditate porro placeat quas magni dolorem rem sint explicabo exercitationem minima tempora omnis eius quae inventore, iste sed voluptatum error laboriosam. 
           </p> 
     </div>  
      
  
 
     <div class="mb-4 bg-white"> 
-        <h3 class="text-uppercase h4 font-bold p-2 text-primary">Comments</h3>
-          <div class="container" style="">
-
-@foreach ( $post->comments as $comments )
-    <div class="row p-4 border mb-3" style="">
-        <div class="col-sm-4 col-md-2">
-            img 
-        </div>
-        <div class="col-sm-8 col-md-10">
-            <div class='font-weight-bold text-capitalize italic'>
-                    <b>
-                    {{ $comments->fullname }}
-                    </b>
-                    <i class="text-small">
-                        {{ $comments->created_at }}
-                    </i>
-            </div>
-            <div class="p">
-                {{ $comments->comment }}
-            </div>
-        </div> 
-    </div>
-@endforeach
-          
-          </div> 
+        <h3 class="text-uppercase h4 font-bold p-2 text-primary">Comments (1)</h3>
     </div>
 
 @if(session()->has('comment_message'))
@@ -76,7 +61,7 @@ by <span>{{ $post->user->firstname . ' '. $post->user->lastname }} </span> on <i
     <div class="mb-4 bg-white"> 
         <h3 class="text-uppercase h4 font-bold p-2 text-info">Leave a Comment</h3>
           <div class="" style="">
-              <form method="POST" action="{{ url('save-comment/'.$post->slug) }}" >
+              <form method="POST" action="" >
     @csrf
                   <div class="form-group">
                       <label for="fullname">Full Name:</label>
@@ -96,7 +81,43 @@ by <span>{{ $post->user->firstname . ' '. $post->user->lastname }} </span> on <i
               </form>
           </div> 
     </div>
+ 
 
-
+            <div class="row  border mb-3" >
+                {{-- <div class="col-sm-4 col-md-2">
+                    <img src="{{ asset('assets/img/sample.jpg')}}" class="w-100 h-100" style="flex-shrink:0;min-width:100%;min-height:100%"/>
+                </div> --}}
+                <div class="col-sm-8 col-md-10">
+                    <div class='font-weight-bold text-capitalize italic'>
+                            <b>
+                                Isaac Toyin
+                            </b>
+                            <i class="text-small">
+                                20 march 2023
+                            </i>
+                    </div>
+                    <div class="p">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio deserunt necessitatibus earum, mollitia reprehenderit maxime totam sequi cupiditate, nostrum aperiam, veniam veritatis voluptas ea beatae ratione repellendus facere corrupti in.
+                    </div>
+                </div>
+            </div>
+            <div class="row  border mb-3" >
+                {{-- <div class="col-sm-4 col-md-2">
+                    <img src="{{ asset('assets/img/sample.jpg')}}" class="w-100 h-100" style="flex-shrink:0;min-width:100%;min-height:100%"/>
+                </div> --}}
+                <div class="col-sm-8 col-md-10">
+                    <div class='font-weight-bold text-capitalize italic'>
+                            <b>
+                                Isaac Toyin
+                            </b>
+                            <i class="text-small">
+                                20 march 2023
+                            </i>
+                    </div>
+                    <div class="p">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio deserunt necessitatibus earum, mollitia reprehenderit maxime totam sequi cupiditate, nostrum aperiam, veniam veritatis voluptas ea beatae ratione repellendus facere corrupti in.
+                    </div>
+                </div>
+            </div>
 
 @endsection
