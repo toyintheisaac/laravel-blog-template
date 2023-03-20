@@ -21,16 +21,16 @@
         @endforeach
     @endif
 
-<form method="POST" action="{{ url("reset-password/".Auth::user()->id) }}"  >
+<form method="POST" action=""  >
     @csrf 
             <div class="form-group mb-2">
-                <input type="password" class="form-control py-3" name="passwords" placeholder="********"/>
+                <input type="password" class="form-control" name="passwords" placeholder="********"/>
             </div>
             <div class="form-group mb-2">
-                <input type="password" class="form-control py-3" name="new_password" placeholder="********" />
+                <input type="password" class="form-control" name="new_password" placeholder="********" />
             </div>
             <div class="form-group mb-2">
-                <input type="password" class="form-control py-3" name="new_password_re" placeholder="********" />
+                <input type="password" class="form-control" name="new_password_re" placeholder="********" />
             </div>
             <div class="form-group mb-2">
                 <input type="submit" class="form-control btn btn-md btn-success" value="UPDATE"  />

@@ -34,53 +34,41 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-        <ul class="navbar-nav me-auto">
-            
-        </ul>
+  
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                                 <li class="nav-item">
                                     <a class="nav-link" href="/blog/">My Blog</a>
-                                </li>
-                        @guest
-                            @if (Route::has('login'))
+                                </li> 
+                         
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="">{{ __('Login') }}</a>
                                 </li>
-                            @endif
-
-                            @if (Route::has('register'))
+                                
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
+                                    <a class="nav-link" href="">{{ __('Register') }}</a>
+                                </li> 
+                     
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->first_name }}  {{ Auth::user()->last_name }}
+                                    Isaac Toyin
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> 
                                     <a class="dropdown-item" href="{{ route('profile') }}" >
-                                       My Profile
+                                    My Profile
                                     </a>
                                     <a class="dropdown-item" href="{{ route('change_password') }}" >
-                                      Change Password
+                                    Change Password
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                    <a class="dropdown-item" href="" >
                                         {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+                                    </a> 
                                 </div>
                             </li>
-                        @endguest
+                        
                     </ul>
                 </div>
             </div>
